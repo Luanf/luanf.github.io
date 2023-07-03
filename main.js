@@ -1,6 +1,6 @@
 let buttons = document.querySelectorAll('button');
 
-function playClickSound() {
+function playClickSound(bassVolume = 0.7, clickVolume = 0.15) {
   const context = new AudioContext();
 
   const duration = 0.05;
@@ -24,7 +24,7 @@ function playClickSound() {
 
   const gainNode = context.createGain();
   gainNode.gain.setValueAtTime(0, context.currentTime);
-  gainNode.gain.linearRampToValueAtTime(1, context.currentTime + attack);
+  gainNode.gain.linearRampToValueAtTime(bassVolume, context.currentTime + attack);
   gainNode.gain.linearRampToValueAtTime(0, context.currentTime + duration);
 
   source.connect(gainNode);
@@ -43,13 +43,12 @@ function playClickSound() {
   clickOscillator.connect(clickGainNode);
   clickGainNode.connect(context.destination);
 
-  clickGainNode.gain.setValueAtTime(0.2, context.currentTime);
+  clickGainNode.gain.setValueAtTime(clickVolume, context.currentTime);
   clickGainNode.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + duration);
 
   clickOscillator.start();
   clickOscillator.stop(context.currentTime + duration);
 }
-
 // button.addEventListener('click', () => {
 //   playClickSound();
 // });
