@@ -607,9 +607,9 @@ button.addEventListener('click', () => {
 
 
 // apply same sound to backBtn
-document.getElementById('backBtn').addEventListener('click', () => {
-  playClickSound();
-});
+// document.getElementById('backBtn').addEventListener('click', () => {
+//   playClickSound();
+// });
 
 function goToRootPage() {
   var currentURL = window.location.href;
