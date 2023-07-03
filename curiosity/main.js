@@ -609,3 +609,13 @@ button.addEventListener('click', () => {
 document.getElementById('backBtn').addEventListener('click', () => {
   playClickSound();
 });
+
+function goToRootPage() {
+  var currentURL = window.location.href;
+  // check if contains www
+  if (currentURL.indexOf('www') > -1) {
+    window.location.href = 'https://www.luonline.info';
+  } else {
+    window.location.href = 'https://luonline.info';
+  }
+}

@@ -165,14 +165,6 @@ Basking in the sunset, a beautiful dream.` },
 Robert M. Pirsig` },
 ];
 
-function gcd(a, b) {
-  if (!b) {
-    return a;
-  }
-
-  return gcd(b, a % b);
-}
-
 window.onload = function () {
   createImageGrid();
   
@@ -231,6 +223,9 @@ function createImageGrid() {
         var index = imageCount - i;
         openModal(this.src, index);
       }
+      img.addEventListener('mouseover', function () {
+        playHoverSound(); // Play the hover sound
+      });
       grid.appendChild(img);
     })(i);
   }
@@ -253,7 +248,59 @@ function setNumColumns() {
   return numColumns;
 }
 
+function playClickSound() {
+  const context = new AudioContext();
+
+  const duration = 0.05;
+  const attack = 0.01;
+  const release = duration - attack;
+
+  const bufferSize = context.sampleRate * duration;
+  const buffer = context.createBuffer(1, bufferSize, context.sampleRate);
+  const data = buffer.getChannelData(0);
+
+  const baseFrequency = 60; // Adjust this value for the bass sound
+
+  for (let i = 0; i < bufferSize; i++) {
+    const t = i / context.sampleRate;
+    const value = Math.sin(2 * Math.PI * baseFrequency * t) * Math.exp(-8 * t);
+    data[i] = value;
+  }
+
+  const source = context.createBufferSource();
+  source.buffer = buffer;
+
+  const gainNode = context.createGain();
+  gainNode.gain.setValueAtTime(0, context.currentTime);
+  gainNode.gain.linearRampToValueAtTime(1, context.currentTime + attack);
+  gainNode.gain.linearRampToValueAtTime(0, context.currentTime + duration);
+
+  source.connect(gainNode);
+  gainNode.connect(context.destination);
+
+  source.start();
+
+  // Add a higher-pitched click sound
+  const clickOscillator = context.createOscillator();
+  const clickGainNode = context.createGain();
+
+  const clickFrequency = 600; // Adjust this value for the higher click sound
+
+  clickOscillator.type = 'triangle';
+  clickOscillator.frequency.setValueAtTime(clickFrequency, context.currentTime);
+  clickOscillator.connect(clickGainNode);
+  clickGainNode.connect(context.destination);
+
+  clickGainNode.gain.setValueAtTime(0.2, context.currentTime);
+  clickGainNode.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + duration);
+
+  clickOscillator.start();
+  clickOscillator.stop(context.currentTime + duration);
+}
+
+
 function openModal(src, index) {
+  playClickSound();
   var modal = document.getElementById('myModal');
   var modalImg = document.getElementById("img01");
   var captionContainer = document.getElementById("caption");
@@ -284,4 +331,49 @@ function closeModal() {
   }
   var modal = document.getElementById('myModal');
   modal.style.display = "none";
+}
+
+function playHoverSound() {
+  const context = new AudioContext();
+
+  const duration = 0.05;
+  const attack = 0.01;
+  const release = duration - attack;
+
+  const bufferSize = context.sampleRate * duration;
+  const buffer = context.createBuffer(1, bufferSize, context.sampleRate);
+  const data = buffer.getChannelData(0);
+
+  const baseFrequency = 60; // Adjust this value for the bass sound
+  const hoverFrequency = 55; // Adjust this value for the lower hover sound
+
+  for (let i = 0; i < bufferSize; i++) {
+    const t = i / context.sampleRate;
+    const value = Math.sin(2 * Math.PI * baseFrequency * t) * Math.exp(-8 * t);
+    const hoverValue = Math.sin(2 * Math.PI * hoverFrequency * t) * Math.exp(-8 * t);
+    data[i] = value + hoverValue * 0.05 // Adjust the hover volume (0.3) as desired
+  }
+
+  const source = context.createBufferSource();
+  source.buffer = buffer;
+
+  const gainNode = context.createGain();
+  gainNode.gain.setValueAtTime(0, context.currentTime);
+  gainNode.gain.linearRampToValueAtTime(1, context.currentTime + attack);
+  gainNode.gain.linearRampToValueAtTime(0, context.currentTime + duration);
+
+  source.connect(gainNode);
+  gainNode.connect(context.destination);
+
+  source.start();
+}
+
+function goToRootPage() {
+  var currentURL = window.location.href;
+  // check if contains www
+  if (currentURL.indexOf('www') > -1) {
+    window.location.href = 'https://www.luonline.info';
+  } else {
+    window.location.href = 'https://luonline.info';
+  }
 }
