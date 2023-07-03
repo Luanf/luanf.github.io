@@ -54,8 +54,8 @@ function playClickSound(bassVolume = 0.7, clickVolume = 0.15) {
 // });
 
 
-buttons.forEach(function (button) {
-  button.addEventListener('click', () => {
-    playClickSound();
-  });
-});
+// buttons.forEach(function (button) {
+//   button.addEventListener('click', () => {
+//     playClickSound();
+//   });
+// });
