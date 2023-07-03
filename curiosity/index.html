@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curiosity</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> 
+</head>
+<body>
+<button id="backBtn"><i class="fas fa-arrow-left fa-xs"></i></button>
+    <div id="app">
+        <h1>Curiosity</h1>
+        <div id="award">
+            <!-- Generated award will go here -->
+        </div>
+        <div id="sliderWrapper">
+            <span role="img" aria-label="sleeping" class="emoji">💤</span>
+            <div id="sliderContainer">
+                <input id="speedSlider" class="hidden" type="range" min="1000" max="9500" value="5000" step="50">
+            </div>
+            <span role="img" aria-label="coffee" class="emoji">☕</span>
+        </div>
+    </div>
+    <button id="aboutBtn">About</button>
+    <script src="main.js"></script>
+</body>
+</html>
