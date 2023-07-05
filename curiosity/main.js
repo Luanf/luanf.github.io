@@ -13,7 +13,6 @@ document.getElementById('backBtn').addEventListener('click', function () {
 
 document.getElementById('aboutBtn').addEventListener('click', async function () {
   let button = document.getElementById('aboutBtn');
-  console.log({ triviaQueue, currentIndex });
 
   if (triviaQueue.length < 10) {
     // Fetch more trivia if the queue is running low
@@ -508,7 +507,17 @@ function generateAward() {
     } else {
       // If the current index is undefined, fetch more trivia and use a default message in the meantime
       fetchTrivia();
-      return "Fetching more trivia...";
+      const currentFact = document.getElementById('award')?.innerHTML;
+      if (currentFact.includes("Perhaps you have a bad connection?")) {
+        return "You are right- sorry to accuse you. Let's try again!"
+      }
+      if (currentFact.includes("Sorry, I still didn't received any facts :(")) {
+        return "Perhaps you have a bad connection?";
+      }
+      if (currentFact.includes("Fun fact: fetching facts...")) {
+        return "Sorry, I still didn't received any facts :("
+      }
+      return "Fun fact: fetching facts...";
     }
   }
 }
