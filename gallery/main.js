@@ -1,5 +1,10 @@
 var imagesText = [
   {
+    header: "Jupiter",
+    caption: `Jupiter's dance
+Future romance`
+  },
+  {
     header: "Pencil",
     caption: `Pure potential, released
 Strokes of graphite lead
@@ -196,7 +201,7 @@ window.onload = function () {
 function createImageGrid() {
   var numColumns = setNumColumns();
   var grid = document.getElementById('imageGrid');
-  var imageCount = 28;  // Change this to the actual number of images
+  var imageCount = imagesText.length; 
 
   // Clear existing images
   while (grid.firstChild) {
@@ -207,7 +212,7 @@ function createImageGrid() {
   var normalWidth = 100 / numColumns;
   var lastRowWidth = 100 / lastRowCount;
 
-  for (var i = imageCount; i >= 1; i--) {
+  for (var i = imageCount; i >= 0; i--) {
     (function (i) {
       var img = document.createElement('img');
       img.src = 'images/image' + i + '.webp';
