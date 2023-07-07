@@ -2,58 +2,75 @@ var imagesText = [
   {
     header: "Jupiter",
     caption: `Jupiter's dance
-Future romance`
+Future romance`,
+    i: 28
   },
   {
     header: "Pencil",
     caption: `Pure potential, released
 Strokes of graphite lead
-A masterpiece, complete`
-},
+A masterpiece, complete`,
+    i: 27
+  },
   {
     header: "Change",
     caption: `Everyday signs of change
 A sequence of accidents
-Our destinies rearrange` },
+Our destinies rearrange`,
+    i: 26
+  },
   {
-    header: "Sway", 
+    header: "Sway",
     caption: `Through gentle sway
-Beauty finds its way`
-},
+Beauty finds its way`,
+    i: 25
+  },
   {
-    header: "Louder", 
+    header: "Louder",
     caption: `Supernovas fade away
-But love forever stays` 
-},
+But love forever stays`,
+    i: 24
+  },
   {
     header: "Game",
     caption: `Static rules, game begins.
 Dynamic moves searches the win,
-Chaos ordered by discipline.`
- },
+Chaos ordered by discipline.`,
+    i: 23
+  },
   {
-    header: "Ancient", 
+    header: "Ancient",
     caption: `Mountains rise tall and strong,
 Melodies played slow and long.
 Echoes of ancient song,
-For long etched in stone.`
-},
+For long etched in stone.`,
+    i: 22
+  },
   {
-    header: "Belt", caption: `The world a conveyor belt
+    header: "Belt",
+    caption: `The world a conveyor belt
 A stream of packages passing by
-Notice it, and choose with care` },
+Notice it, and choose with care`,
+    i: 21
+  },
   {
-    header: "Elegant", caption: `Graceful dancers leap and twirl,
+    header: "Elegant",
+    caption: `Graceful dancers leap and twirl,
 In perfect harmony with the world.
 Elegant movements, fluid and light,
-A dance of beauty, pure and bright.`
-},
+A dance of beauty, pure and bright.`,
+    i: 20
+  },
   {
-    header: "Library", caption: `Librarian's skill,
+    header: "Library",
+    caption: `Librarian's skill,
 In the mind apply,
-Virtues to find.` },
+Virtues to find.`,
+    i: 19
+  },
   {
-    header: "Apparent", caption: `Fleeting clouds in the sky
+    header: "Apparent",
+    caption: `Fleeting clouds in the sky
 Our dreams and aspirations
 Dissipate as they fly by
 Nothing else but sensations.
@@ -62,17 +79,25 @@ Nothing else but sensations.
 An immense machinery
 Of apparent solidity
 At a moment diminishes
-Nothing else but memories.`
-},
+Nothing else but memories.`,
+    i: 18
+  },
   {
-    header: "Brain", caption: `Pure complexity
-Perfectly asymmetric` },
+    header: "Brain",
+    caption: `Pure complexity
+Perfectly asymmetric`,
+    i: 17
+  },
   {
-    header: "Quest", caption: `Fishing for dreams,
+    header: "Quest",
+    caption: `Fishing for dreams,
 In the river of life,
-Man's quest supreme.` },
+Man's quest supreme.`,
+    i: 16
+  },
   {
-    header: "Without", caption: `Long before we've been,
+    header: "Without",
+    caption: `Long before we've been,
 The world spins on, serene,
 Miracles, in every scene.
 
@@ -82,22 +107,34 @@ Miracles, the night's song.
 
 Without a name,
 Nature's wonder,
-All the same.` },
+All the same.`,
+    i: 15
+  },
   {
-    header: "Mirror", caption: `Each face a mirror
+    header: "Mirror",
+    caption: `Each face a mirror
 Myself, distorted
 A never-ending cycle
-Of self-discovery` },
+Of self-discovery`,
+    i: 14
+  },
   {
-    header: "Express", caption: `No time to second guess
-Only time to express` },
+    header: "Express",
+    caption: `No time to second guess
+Only time to express`,
+    i: 13
+  },
   {
-    header: "Savor", caption: `I move in slow, slow savor
+    header: "Savor",
+    caption: `I move in slow, slow savor
 A prisoner of time's flavor
 Eternity is my release
-My mind at peace` },
+My mind at peace`,
+    i: 12
+  },
   {
-    header: "Might", caption: `Captain of the ship
+    header: "Might",
+    caption: `Captain of the ship
 Through the vast sea
 In a life long trip
 
@@ -109,27 +146,46 @@ One and whole
 
 The darkest nights
 The fiercest storms
-The captain's might.` },
+The captain's might.`,
+    i: 11
+  },
   {
-    header: "Goldilocks", caption: `A delicate dance,
+    header: "Goldilocks",
+    caption: `A delicate dance,
 All up to chance,
 Nothing too far,
-Moderation in all.` },
+Moderation in all.`,
+    i: 10
+  },
   {
-    header: "Janus", caption: `In deep meditation,
+    header: "Janus",
+    caption: `In deep meditation,
 Past and future,
-Present.` },
+Present.`,
+    i: 9
+  },
   {
-    header: "Cliff", caption: `The ocean crashes below,
+    header: "Cliff",
+    caption: `The ocean crashes below,
 As I stand atop the cliff,
-The world at my feet.` },
+The world at my feet.`,
+    i: 8
+  },
   {
-    header: "Wonder", caption: `Wonder, the highest of all
+    header: "Wonder",
+    caption: `Wonder, the highest of all
 Feelings of joy, heart standing tall
-Limit of man, nothing further to recall` },
-  { header: "Patience", caption: "The secret of saying something new is to be patient." },
+Limit of man, nothing further to recall`,
+    i: 7
+  },
   {
-    header: "Dice", caption: `If there was ever a void
+    header: "Patience",
+    caption: "The secret of saying something new is to be patient.",
+    i: 6
+  },
+  {
+    header: "Dice",
+    caption: `If there was ever a void
 In the boundarylessness
 An edgeless dice.
 
@@ -141,34 +197,52 @@ We are the dice,
 
 Lucky enough to be
 Of all things
-Unlucky` },
+Unlucky`,
+    i: 5
+  },
   {
-    header: "Fox", caption: `"As I walked home last night, I saw a lone fox 
+    header: "Fox",
+    caption: `"As I walked home last night, I saw a lone fox 
     dancing in the cold moonlight.
 I stood and watched; then took the low road, 
 knowing the night was his by right.
 Sometimes, when words ring true,
 I’m like a lone fox dancing in the morning dew."
-Ruskin Bond` },
+Ruskin Bond`,
+    i: 4
+  },
   {
-    header: "Cycles", caption: `cycles, cycles everywhere
+    header: "Cycles",
+    caption: `cycles, cycles everywhere
 a cycle that's infinite
 and Divine
 
-Happy New Year` },
+Happy New Year`,
+    i: 3
+  },
   {
-    header: "Airplanes", caption: `High above the clouds they soar,
+    header: "Airplanes",
+    caption: `High above the clouds they soar,
 Machines of metal, grace, and power,
-Impressive beasts that never bore.` },
+Impressive beasts that never bore.`,
+    i: 2
+  },
   {
-    header: "Cow", caption: `Its sweet dark eyes were the last thing I've seen.
+    header: "Cow",
+    caption: `Its sweet dark eyes were the last thing I've seen.
 Awakening, the first thing I remember thinking,
-Basking in the sunset, a beautiful dream.` },
+Basking in the sunset, a beautiful dream.`,
+    i: 1
+  },
   {
-    header: "Art", caption: `"There are moments in our lives, there are moments in a day, when we seem to see beyond the usual. Such are the moments of our greatest happiness. Such are the moments of our greatest wisdom. If one could but recall this vision by some sort of sign. It was in this hope that the arts were invented. Signposts on the way to what may be. Signposts toward greater knowledge."
+    header: "Art",
+    caption: `"There are moments in our lives, there are moments in a day, when we seem to see beyond the usual. Such are the moments of our greatest happiness. Such are the moments of our greatest wisdom. If one could but recall this vision by some sort of sign. It was in this hope that the arts were invented. Signposts on the way to what may be. Signposts toward greater knowledge."
 
-Robert M. Pirsig` },
-];
+Robert M. Pirsig`,
+    i: 0
+  },
+]; 
+
 
 window.onload = function () {
   createImageGrid();
@@ -212,7 +286,7 @@ function createImageGrid() {
   var normalWidth = 100 / numColumns;
   var lastRowWidth = 100 / lastRowCount;
 
-  for (var i = imageCount; i >= 0; i--) {
+  for (var i = imageCount; i > 0; i--) {
     (function (i) {
       var img = document.createElement('img');
       img.src = 'images/image' + i + '.webp';
@@ -313,7 +387,9 @@ function openModal(src, index) {
 
   modal.style.display = "block";
   modalImg.src = src;
-  modalHeader.innerHTML = imagesText[index].header;
+  let imageWithIndex = imagesText.find(image => image.i === imagesText.length - index - 1);
+  modalHeader.innerHTML = imageWithIndex.header;
+
 
   // Remove any existing caption text
   while (captionContainer.firstChild) {
@@ -321,7 +397,7 @@ function openModal(src, index) {
   }
 
   // Split the caption text into paragraphs and insert each one as a separate <p> element
-  var paragraphs = imagesText[index].caption.split('\n');
+  let paragraphs = imageWithIndex.caption.split('\n');
   for (var i = 0; i < paragraphs.length; i++) {
     var paragraph = document.createElement('p');
     paragraph.innerText = paragraphs[i];

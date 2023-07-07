@@ -5,12 +5,15 @@ body, html {
     padding: 0;
     height: 100%;
     font-size: 19px;
+    min-height: 100%;
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
+
 
 .grid img {
   flex: 1 0 var(--num-columns);
