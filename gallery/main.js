@@ -243,6 +243,37 @@ Robert M. Pirsig`,
   },
 ]; 
 
+const order = [
+  'jupiter',
+  'pencil',
+  'change',
+  'sway',
+  'louder',
+  'game',
+  'ancient',
+  // 'belt',
+  'elegant',
+  // 'library',
+  'apparent',
+  'brain',
+  'quest',
+  'without',
+  'mirror',
+  'express',
+  'savor',
+  'might',
+  'goldilocks',
+  'janus',
+  'cliff',
+  'wonder',
+  'patience',
+  'dice',
+  'fox',
+  'cycles',
+  'airplanes',
+  'cow',
+  'art'
+];
 
 window.onload = function () {
   createImageGrid();
@@ -275,7 +306,7 @@ window.onload = function () {
 function createImageGrid() {
   var numColumns = setNumColumns();
   var grid = document.getElementById('imageGrid');
-  var imageCount = imagesText.length; 
+  var imageCount = order.length; 
 
   // Clear existing images
   while (grid.firstChild) {
@@ -286,10 +317,10 @@ function createImageGrid() {
   var normalWidth = 100 / numColumns;
   var lastRowWidth = 100 / lastRowCount;
 
-  for (var i = imageCount; i > 0; i--) {
+  for (var i = order.length; i > 0; i--) {
     (function (i) {
       var img = document.createElement('img');
-      img.src = 'images/image' + i + '.webp';
+      img.src = 'images/' + order[imageCount - i] + '.webp';
 
       // If this image is in the last row, make it fill the remaining space
       if (i <= lastRowCount) {
@@ -387,7 +418,7 @@ function openModal(src, index) {
 
   modal.style.display = "block";
   modalImg.src = src;
-  let imageWithIndex = imagesText.find(image => image.i === imagesText.length - index - 1);
+  let imageWithIndex = imagesText.find(image => image.header.toLocaleLowerCase() === order[index]);
   modalHeader.innerHTML = imageWithIndex.header;
 
 

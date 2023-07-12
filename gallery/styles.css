@@ -17,7 +17,7 @@ body, html {
 
 .grid img {
   flex: 1 0 var(--num-columns);
-  height: auto;
+  height: auto;  
   object-fit: cover;
   transition: transform .2s;
 }
