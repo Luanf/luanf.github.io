@@ -24,7 +24,6 @@ document.getElementById('aboutBtn').addEventListener('click', async function () 
   // Add class to animate fading
 });
 
-document.getElementById('speedSlider').addEventListener('change', updateAwardRate);
 
 function displayAward(award) {
   let awardElement = document.createElement('div');
@@ -58,7 +57,6 @@ function updateAward() {
 
 function updateAwardRate() {
   clearInterval(awardInterval);
-  awardInterval = setInterval(updateAward, 10000 - document.getElementById('speedSlider').value);
 }
 
 // Array of similar sentences
@@ -494,8 +492,6 @@ function updateButtonText() {
 function generateAward() {
   if (attemptNumber === 0) {
     attemptNumber++;
-    // remove "hidden" class from speedSlider
-    document.getElementById('speedSlider').classList.remove('hidden');
     // updateAwardRate();
     // change from About to "Tell me more"
     updateButtonText();

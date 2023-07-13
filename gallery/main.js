@@ -1,5 +1,14 @@
 var imagesText = [
   {
+    header: "Roams",
+    caption: `Fish in bowl, in circle roams,
+All it knows, but is it home?
+
+
+Silent eyes, silent plea,
+In dreams, it roams free.`,
+  },
+  {
     header: "Jupiter",
     caption: `Jupiter's dance
 Future romance`,
@@ -244,6 +253,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'roams',
   'jupiter',
   'pencil',
   'change',
