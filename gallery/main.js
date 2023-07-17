@@ -293,28 +293,28 @@ const order = [
 
 window.onload = function () {
   createImageGrid();
-  
+
   var modal = document.getElementById('myModal');
   var span = document.getElementsByClassName("close")[0];
 
   span.onclick = function () {
-    modal.style.display = "none";
+    closeModal();
   }
 
   window.onclick = function (event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+      closeModal();
     }
   }
 
   window.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
-      modal.style.display = "none";
+      closeModal();
     }
   });
-  
+
   // Redraw the grid on window resize
-  window.onresize = function() {
+  window.onresize = function () {
     createImageGrid();
   }
 }
@@ -322,7 +322,7 @@ window.onload = function () {
 function createImageGrid() {
   var numColumns = setNumColumns();
   var grid = document.getElementById('imageGrid');
-  var imageCount = order.length; 
+  var imageCount = order.length;
 
   // Clear existing images
   while (grid.firstChild) {
@@ -349,11 +349,19 @@ function createImageGrid() {
         var index = imageCount - i;
         openModal(this.src, index);
       }
-      // img.addEventListener('mouseover', function () {
-      //   playHoverSound(); // Play the hover sound
-      // });
       grid.appendChild(img);
     })(i);
+  }
+
+  if (window.location.hash) {
+    let hash = window.location.hash.substring(1); // remove the '#' character
+    let index = imagesText.findIndex(image => image.header.toLocaleLowerCase() === hash);
+    if (index !== -1) {
+      // The 'setTimeout' gives the images enough time to load before opening the modal
+      setTimeout(function () {
+        openModal('images/' + order[index] + '.webp', index);
+      }, 300);
+    }
   }
 }
 
@@ -437,6 +445,8 @@ function openModal(src, index) {
   let imageWithIndex = imagesText.find(image => image.header.toLocaleLowerCase() === order[index]);
   modalHeader.innerHTML = imageWithIndex.header;
 
+  // Add the image name to the URL
+  window.location.hash = imageWithIndex?.header?.toLocaleLowerCase();
 
   // Remove any existing caption text
   while (captionContainer.firstChild) {
