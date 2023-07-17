@@ -355,11 +355,12 @@ function createImageGrid() {
 
   if (window.location.hash) {
     let hash = window.location.hash.substring(1); // remove the '#' character
-    let index = imagesText.findIndex(image => image.header.toLocaleLowerCase() === hash);
-    if (index !== -1) {
+    if (hash) {
+      // get the index of the image on order array
+      let index = order.indexOf(hash);
       // The 'setTimeout' gives the images enough time to load before opening the modal
       setTimeout(function () {
-        openModal('images/' + order[index] + '.webp', index);
+        openModal('images/' + hash + '.webp', index);
       }, 300);
     }
   }
