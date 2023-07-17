@@ -1,5 +1,10 @@
 var imagesText = [
   {
+    header: "Mermaid",
+    caption: `Paints the moonlight shade,
+A serenade mermaid made.`,
+  },
+  {
     header: "Roams",
     caption: `Fish in bowl, in circle roams,
 All it knows, but is it home?
@@ -201,7 +206,7 @@ An edgeless dice.
 
 If there is a universe
 Through its boundaries
-We are the dice,
+We are the dice.
 
 
 Lucky enough to be
@@ -253,6 +258,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'mermaid',
   'roams',
   'jupiter',
   'pencil',
