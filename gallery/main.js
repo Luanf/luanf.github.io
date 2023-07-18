@@ -1,5 +1,12 @@
 var imagesText = [
   {
+    header: "Stare",
+    caption: `A rare pair
+  Unaware care
+  Bear a love lair
+  Stare and declare`,
+  },
+  {
     header: "Mermaid",
     caption: `Paints the moonlight shade,
 A serenade mermaid made.`,
@@ -158,8 +165,8 @@ We are all it
 One and whole
 
 
-The darkest nights
-The fiercest storms
+The darkest night
+The fiercest storm
 The captain's might.`,
     i: 11
   },
@@ -258,6 +265,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'stare',
   'mermaid',
   'roams',
   'jupiter',
@@ -335,7 +343,7 @@ function createImageGrid() {
 
   for (var i = order.length; i > 0; i--) {
     (function (i) {
-      var img = document.createElement('img');
+      const img = document.createElement('img');
       img.src = 'images/' + order[imageCount - i] + '.webp';
 
       // If this image is in the last row, make it fill the remaining space
