@@ -4,7 +4,7 @@ var imagesText = [
     caption: `A rare pair
   Unaware care
   Bear a love lair
-  Stare and declare`,
+  Stare, and declare.`,
   },
   {
     header: "Mermaid",
