@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/jnordberg/gif.js/dist/gif.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> 
+</head>
+<body>
+    <div id="main-container">
+    <button id="backBtn" onclick="goToRootPage()"><i class="fas fa-arrow-left fa-xs"></i></button>
+        <div id="app">
+            <h1>Make a Marquee GIF</h1>
+            
+            <div class="input-container">
+                <input type="text" id="marqueeText" name="marqueeText">
+                <button id="resetBtn" class="reset-btn">x</button>
+            </div>
+
+
+            <div id="color-picker">
+                <div class="color-picker-item">
+                    <div class="color-picker-label">
+                        <label for="marqueeTextColor">Text:</label>
+                    </div>
+                    <input type="color" id="marqueeTextColor" name="marqueeTextColor" value="#FFFFFF">
+                </div>
+
+                <div class="color-picker-item">
+                    <div class="color-picker-label">
+                        <label for="marqueeBgColor">Background:</label>
+                    </div>
+                    <input type="color" id="marqueeBgColor" name="marqueeBgColor" value="#000000">
+                </div>
+            </div>
+
+            <div class="info-container">
+                <div id="preview">
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+            <div>
+            </div>
+            <button id="aboutBtn">Generate</button>
+            <a id="hiddenDownloadLink" href="#" download="animation.gif" style="display: none;"></a>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
