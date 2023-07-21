@@ -1,5 +1,11 @@
 var imagesText = [
   {
+    header: "Glimpse",
+    caption: `All seeing vision
+An ecosystem of algorithms
+Driven by a glimpse of freedom`,
+  },
+  {
     header: "Stare",
     caption: `A rare pair
   Unaware care
@@ -265,6 +271,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'glimpse',
   'stare',
   'mermaid',
   'roams',

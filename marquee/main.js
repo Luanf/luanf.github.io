@@ -27,7 +27,10 @@ function draw() {
 
   ctx.font = '42px sans-serif';
   ctx.fillStyle = textColor;
-  ctx.fillText(text, x, canvas.height / 2 + 10);
+  let metrics = ctx.measureText(text);
+  let textHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+  let y = canvas.height / 2 + textHeight / 2.5;
+  ctx.fillText(text, x, y);
 
   // Start capturing gif when text starts to appear from the right
   if (x + textWidth >= (canvas.width - 150) && !captureGif && !gifReady) {
@@ -46,7 +49,7 @@ function draw() {
     gif.addFrame(ctx, { copy: true, delay: 25 });
   }
 
-  x -= 5;
+  x -= 4;
   if (x + textWidth < 0) {
     x = canvas.width;
   }
