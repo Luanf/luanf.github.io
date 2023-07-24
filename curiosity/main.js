@@ -625,3 +625,33 @@ function goToRootPage() {
     window.location.href = 'https://luonline.info';
   }
 }
+
+
+window.addEventListener('load', function () {
+  fetch('http://expressjs-postgres-production-1d4c.up.railway.app/v', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      page_url: window.location.href
+    })
+  });
+});
+
+document.querySelectorAll('button').forEach(button => {
+  button.addEventListener('click', function () {
+    fetch('http://expressjs-postgres-production-1d4c.up.railway.app/c', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        page_url: window.location.href,
+        element_id: this.id
+      })
+    }).catch(error => {
+      console.error('Error:', error);
+    });
+  });
+});

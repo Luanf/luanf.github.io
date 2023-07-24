@@ -270,6 +270,8 @@ Robert M. Pirsig`,
   },
 ]; 
 
+const viewId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+
 const order = [
   'glimpse',
   'stare',
@@ -449,6 +451,8 @@ function playClickSound(bassVolume = 0.7, clickVolume = 0.15) {
 }
 
 
+
+modalTimer = 0;
 function openModal(src, index) {
   playClickSound();
   var modal = document.getElementById('myModal');
@@ -462,8 +466,22 @@ function openModal(src, index) {
   modalHeader.innerHTML = imageWithIndex.header;
 
   // Add the image name to the URL
-  window.location.hash = imageWithIndex?.header?.toLocaleLowerCase();
+  let tag = imageWithIndex?.header?.toLocaleLowerCase();
+  window.location.hash = tag
+  fetch('http://expressjs-postgres-production-1d4c.up.railway.app/t', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      page_url: window.location.href,
+      tag: tag,
+      session_id: viewId
+    })
+  });
 
+  // Start capturing time of modal open using modalTimer
+  modalTimer = performance.now();
   // Remove any existing caption text
   while (captionContainer.firstChild) {
     captionContainer.removeChild(captionContainer.firstChild);
@@ -479,10 +497,28 @@ function openModal(src, index) {
   }
 }
 
+// generate a short id
 function closeModal() {
+  const timeSpent = performance.now() - modalTimer;
+  modalTimer = 0;
+  console.log({ timeSpent })
+  fetch('http://expressjs-postgres-production-1d4c.up.railway.app/tt', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      page_url: window?.location?.href,
+      tag: window?.location?.hash?.substring(1),
+      view_time: timeSpent/1000,
+      session_id: viewId
+    })
+  });
   if (location.hash) {
     history.pushState("", document.title, window.location.pathname + window.location.search);
   }
+
+  modalTimer = 0;
   var modal = document.getElementById('myModal');
   modal.style.display = "none";
 }
@@ -531,3 +567,37 @@ function goToRootPage() {
     window.location.href = 'https://luonline.info';
   }
 }
+
+
+window.addEventListener('load', function () {
+  fetch('http://expressjs-postgres-production-1d4c.up.railway.app/v', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      page_url: window.location.href,
+      session_id: viewId
+    })
+  });
+});
+
+document.querySelectorAll('button').forEach(button => {
+  button.addEventListener('click', function () {
+    fetch('http://expressjs-postgres-production-1d4c.up.railway.app/c', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        page_url: window.location.href,
+        element_id: this.id,
+        session_id: viewId
+      })
+    }).catch(error => {
+      console.error('Error:', error);
+    });
+  });
+});
+
+
