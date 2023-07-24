@@ -468,7 +468,7 @@ function openModal(src, index) {
   // Add the image name to the URL
   let tag = imageWithIndex?.header?.toLocaleLowerCase();
   window.location.hash = tag
-  fetch('http://expressjs-postgres-production-1d4c.up.railway.app/t', {
+  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/t', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -502,7 +502,7 @@ function closeModal() {
   const timeSpent = performance.now() - modalTimer;
   modalTimer = 0;
   console.log({ timeSpent })
-  fetch('http://expressjs-postgres-production-1d4c.up.railway.app/tt', {
+  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/tt', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -570,7 +570,7 @@ function goToRootPage() {
 
 
 window.addEventListener('load', function () {
-  fetch('http://expressjs-postgres-production-1d4c.up.railway.app/v', {
+  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/v', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -584,7 +584,7 @@ window.addEventListener('load', function () {
 
 document.querySelectorAll('button').forEach(button => {
   button.addEventListener('click', function () {
-    fetch('http://expressjs-postgres-production-1d4c.up.railway.app/c', {
+    fetch('https://expressjs-postgres-production-1d4c.up.railway.app/c', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

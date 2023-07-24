@@ -200,7 +200,7 @@ function goToRootPage() {
 
 
 window.addEventListener('load', function () {
-  fetch('http://expressjs-postgres-production-1d4c.up.railway.app/v', {
+  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/v', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -213,7 +213,7 @@ window.addEventListener('load', function () {
 
 document.querySelectorAll('button').forEach(button => {
   button.addEventListener('click', function () {
-    fetch('http://expressjs-postgres-production-1d4c.up.railway.app/c', {
+    fetch('https://expressjs-postgres-production-1d4c.up.railway.app/c', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
