@@ -93,7 +93,7 @@ function batch(cn) {
       body: JSON.stringify({
         page_url: window.location.href,
         session_id: session_id,
-        element_id: this.id,
+        element_id: 'mainBtn',
         click_amt: cn,
       })
     }).catch(error => {
