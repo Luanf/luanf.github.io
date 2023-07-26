@@ -606,13 +606,13 @@ function playClickSound(bassVolume = 0.7, clickVolume = 0.15) {
 }
 
 
-clicks = 0;
+// clicks = 0;
 button.addEventListener('click', () => {
   playClickSound();
-  clicks++;
-  if (batch && typeof batch === 'function') {
-    batch(clicks);
-  }
+  // clicks++;
+  // if (batch && typeof batch === 'function') {
+  //   batch(clicks);
+  // }
 });
 
 
