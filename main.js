@@ -59,32 +59,3 @@ function playClickSound(bassVolume = 0.7, clickVolume = 0.15) {
 //     playClickSound();
 //   });
 // });
-
-window.addEventListener('load', function () {
-  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/v', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      page_url: window.location.href
-    })
-  });
-});
-
-document.querySelectorAll('button').forEach(button => {
-  button.addEventListener('click', function () {
-    fetch('https://expressjs-postgres-production-1d4c.up.railway.app/c', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        page_url: window.location.href,
-        element_id: this.id // assuming each button has a unique id
-      })
-    }).catch(error => {
-      console.error('Error:', error);
-    });
-  });
-});

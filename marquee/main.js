@@ -189,41 +189,19 @@ document.body.addEventListener('keydown', function (event) {
 });
 
 function goToRootPage() {
-  var currentURL = window.location.href;
-  // check if contains www
-  if (currentURL.indexOf('www') > -1) {
-    window.location.href = 'https://www.luonline.info';
+  var currentURL = new URL(window.location.href);
+  var hostname = currentURL.hostname;
+
+  // check if running locally
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    console.log("Running on local server");
+    window.location.href = currentURL.origin; // This will keep it on the same scheme, hostname, and port
   } else {
-    window.location.href = 'https://luonline.info';
+    // check if contains www
+    if (hostname.indexOf('www') > -1) {
+      window.location.href = 'https://www.luonline.info';
+    } else {
+      window.location.href = 'https://luonline.info';
+    }
   }
 }
-
-
-window.addEventListener('load', function () {
-  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/v', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      page_url: window.location.href
-    })
-  });
-});
-
-document.querySelectorAll('button').forEach(button => {
-  button.addEventListener('click', function () {
-    fetch('https://expressjs-postgres-production-1d4c.up.railway.app/c', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        page_url: window.location.href,
-        element_id: this.id
-      })
-    }).catch(error => {
-      console.error('Error:', error);
-    });
-  });
-});

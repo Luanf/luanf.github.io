@@ -270,8 +270,6 @@ Robert M. Pirsig`,
   },
 ]; 
 
-const viewId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-
 const order = [
   'glimpse',
   'stare',
@@ -468,18 +466,9 @@ function openModal(src, index) {
   // Add the image name to the URL
   let tag = imageWithIndex?.header?.toLocaleLowerCase();
   window.location.hash = tag
-  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/t', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      page_url: window.location.href,
-      tag: tag,
-      session_id: viewId
-    })
-  });
-
+  if (tagFn && typeof tagFn === 'function') { 
+    tagFn(tag);
+  }
   // Start capturing time of modal open using modalTimer
   modalTimer = performance.now();
   // Remove any existing caption text
@@ -501,19 +490,9 @@ function openModal(src, index) {
 function closeModal() {
   const timeSpent = performance.now() - modalTimer;
   modalTimer = 0;
-  console.log({ timeSpent })
-  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/tt', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      page_url: window?.location?.href,
-      tag: window?.location?.hash?.substring(1),
-      view_time: timeSpent/1000,
-      session_id: viewId
-    })
-  });
+  if (tagTt && typeof tagTt === 'function') { 
+    tagTt(timeSpent);
+  }
   if (location.hash) {
     history.pushState("", document.title, window.location.pathname + window.location.search);
   }
@@ -559,45 +538,19 @@ function playHoverSound() {
 }
 
 function goToRootPage() {
-  var currentURL = window.location.href;
-  // check if contains www
-  if (currentURL.indexOf('www') > -1) {
-    window.location.href = 'https://www.luonline.info';
+  var currentURL = new URL(window.location.href);
+  var hostname = currentURL.hostname;
+
+  // check if running locally
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    console.log("Running on local server");
+    window.location.href = currentURL.origin; // This will keep it on the same scheme, hostname, and port
   } else {
-    window.location.href = 'https://luonline.info';
+    // check if contains www
+    if (hostname.indexOf('www') > -1) {
+      window.location.href = 'https://www.luonline.info';
+    } else {
+      window.location.href = 'https://luonline.info';
+    }
   }
 }
-
-
-window.addEventListener('load', function () {
-  fetch('https://expressjs-postgres-production-1d4c.up.railway.app/v', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      page_url: window.location.href,
-      session_id: viewId
-    })
-  });
-});
-
-document.querySelectorAll('button').forEach(button => {
-  button.addEventListener('click', function () {
-    fetch('https://expressjs-postgres-production-1d4c.up.railway.app/c', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        page_url: window.location.href,
-        element_id: this.id,
-        session_id: viewId
-      })
-    }).catch(error => {
-      console.error('Error:', error);
-    });
-  });
-});
-
-
