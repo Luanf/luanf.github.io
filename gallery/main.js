@@ -1,5 +1,12 @@
 var imagesText = [
   {
+    header: "Indifferent",
+    caption: `Indifferent to the sun
+Morning, evening, none
+Magnificent lonely one
+Burning until its done`
+  },
+  {
     header: "Glimpse",
     caption: `All seeing vision
 An ecosystem of algorithms
@@ -271,6 +278,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'indifferent',
   'glimpse',
   'stare',
   'mermaid',
@@ -297,7 +305,7 @@ const order = [
   'janus',
   'cliff',
   'wonder',
-  'patience',
+  // 'patience',
   'dice',
   'fox',
   'cycles',
