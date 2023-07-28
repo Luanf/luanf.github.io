@@ -1,5 +1,12 @@
 var imagesText = [
   {
+    header: "Hidden",
+    caption: `In the canvas, in the verse,
+In the universe's diverse,
+Hidden pulse, inner drive,
+The dance of being alive.`,
+  },
+  {
     header: "Indifferent",
     caption: `Indifferent to the sun
 Morning, evening, none
@@ -107,8 +114,8 @@ Virtues to find.`,
     caption: `Fleeting clouds in the sky
 Our dreams and aspirations
 Dissipate as they fly by
-Nothing else but sensations.
 
+Nothing else but sensations.
 
 An immense machinery
 Of apparent solidity
@@ -278,6 +285,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'hidden',
   'indifferent',
   'glimpse',
   'stare',
