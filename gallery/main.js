@@ -1,5 +1,11 @@
 var imagesText = [
   {
+    header: "Fenix",
+    caption:`Flames flicker, fearless flight,
+Fanning life's fleeting light,
+Fueling life's fateful fight.`
+  },
+  {
     header: "Hidden",
     caption: `In the canvas, in the verse,
 In the universe's diverse,
@@ -285,6 +291,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'fenix',
   'hidden',
   'indifferent',
   'glimpse',
