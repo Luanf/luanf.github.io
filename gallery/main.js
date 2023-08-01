@@ -1,5 +1,16 @@
 var imagesText = [
   {
+    header: "Balloon",
+    caption: `Lost, yet in view,
+Thoughts in space,
+Heartbeat races,
+Dreams to pursue.
+
+Far, far away it flew,
+Through grays and hues,
+Carries, me and you.`,
+  },
+  {
     header: "Fenix",
     caption:`Flames flicker, fearless flight,
 Fanning life's fleeting light,
@@ -291,6 +302,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'balloon',
   'fenix',
   'hidden',
   'indifferent',
