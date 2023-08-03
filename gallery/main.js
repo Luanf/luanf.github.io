@@ -1,5 +1,11 @@
 var imagesText = [
   {
+    header: "Gumyōchō",
+    caption: `Seeks resent
+  Never content
+  Soul is spent`,
+  },
+  {
     header: "Balloon",
     caption: `Lost, yet in view,
 Thoughts in space,
@@ -302,6 +308,7 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
+  'gumyōchō',
   'balloon',
   'fenix',
   'hidden',
