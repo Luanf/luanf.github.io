@@ -3,7 +3,7 @@ var imagesText = [
     header: "Rain",
     caption: `Crowds of clouds whispers loud,
   Metallic sounds in stormy rounds,
-  Gears that plop in puddle stops,
+  Cogs and drops in puddle stops,
   Tick-tocks, wet with rain nonstop.`,
   },
   {
