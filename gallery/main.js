@@ -1,5 +1,12 @@
 var imagesText = [
   {
+    header: "Rain",
+    caption: `Crowds of clouds whispers loud,
+  Metallic sounds in stormy rounds,
+  Gears that plop in puddle stops,
+  Tick-tocks, wet with rain nonstop.`,
+  },
+  {
     header: "Gumyōchō",
     caption: `Seeks resent
   Never content
@@ -308,7 +315,8 @@ Robert M. Pirsig`,
 ]; 
 
 const order = [
-  'gumyōchō',
+  'rain',
+  'gumyocho',
   'balloon',
   'fenix',
   'hidden',
@@ -502,7 +510,7 @@ function openModal(src, index) {
 
   modal.style.display = "block";
   modalImg.src = src;
-  let imageWithIndex = imagesText.find(image => image.header.toLocaleLowerCase() === order[index]);
+  let imageWithIndex = imagesText.find(image => image.header.toLocaleLowerCase().replace(/ō/g, 'o') === order[index]);
   modalHeader.innerHTML = imageWithIndex.header;
 
   // Add the image name to the URL
